@@ -47,14 +47,14 @@
     </div>
 </div>
 <audio data-key="65" src="sounds/04_Clap_SP_125_13.wav"></audio>
-<audio data-key="68" src="sounds/Trash_01_336_SP.wav"></audio>
+<audio data-key="68" src="sounds/WoodClap_SP_93_01.wav"></audio>
 <audio data-key="83" src="sounds/31_Clap_18_256_SP.wav"></audio>
 <audio data-key="70" src="sounds/AP_Clap_SP_145_21.wav"></audio>
 <audio data-key="71" src="sounds/Clap_04_3_SP.wav"></audio>
 <audio data-key="72" src="sounds/CloseClap_03_630.wav"></audio>
 <audio data-key="74" src="sounds/DrmFluffPunchSnare_SP_01_450.wav"></audio>
 <audio data-key="75" src="sounds/LayersClap_01_614.wav"></audio>
-<audio data-key="76" src="sounds/Trash_01_336_SP.wav"></audio>
+<audio data-key="76" src="sounds/SpringreverbRim_SP_02_450.wav"></audio>
 
 
 <script>
@@ -69,9 +69,15 @@
         audio.currentTime=0;   // rewind to the start aaa
         audio.play() ;
         key.classList.add("playing")
-        console.log(key) 
-        
+        console.log(key)   
     })
+    function removeTransition(e) {
+        if(e.propertyName !=="transform") return;
+        this.classList.remove("playing")
+        
+    }
+    const keys=document.querySelectorAll(".key");
+    keys.forEach(key=>key.addEventListener('transitionend',removeTransition))
 </script>
 
 
